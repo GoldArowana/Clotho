@@ -47,7 +47,7 @@
             <AppenderRef ref="con"/> <!-- Root Logger的Appender引用上面定义的Console -->
         </Root>
 
-        <Logger name="com.aries.department.athena" level="info" additivity="true">
+        <Logger name="com.aries.auth.clotho" level="info" additivity="true">
             <AppenderRef ref="infoRollingFile"/> <!-- Root Logger的Appender引用上面定义的Console -->
             <AppenderRef ref="errorRollingFile"/> <!-- Root Logger的Appender引用上面定义的Console -->
         </Logger>
