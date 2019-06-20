@@ -15,6 +15,7 @@
         <module>clotho-client-thrift</module>
         <module>clotho-server-thrift</module>
         <module>clotho-starter</module>
+        <module>clotho-sal</module>
     </modules>
 
     <name>Clotho</name>

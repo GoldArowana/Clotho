@@ -34,6 +34,11 @@
             <artifactId>hera-client-thrift</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.aries.auth</groupId>
+            <artifactId>clotho-sal</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>

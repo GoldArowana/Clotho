@@ -12,14 +12,12 @@
     <Appenders>
         <Console name="con" target="SYSTEM_OUT"> <!-- 定义类型为Console的Appender -->
             <PatternLayout
-                    charset="UTF-8"
                     pattern="%d{yyyy.MM.dd 'at' HH:mm:ss.SSS} [%-5level] %t %c{10} %M %L %n%msg%n"/> <!-- 定义类型为Pattern的Layout -->
         </Console>
 
         <RollingFile name="infoRollingFile" fileName="${LOG_HOME}/${PROJECT_NAME}/info.log"
                      filePattern="%d{yyyyMMdd}.info.log">
-            <PatternLayout charset="UTF-8"
-                           pattern="%d{yyyy.MM.dd 'at' HH:mm:ss.SSS} [%-5level] %t %c{10} %M %L %n%msg%n"/>
+            <PatternLayout pattern="%d{yyyy.MM.dd 'at' HH:mm:ss.SSS} [%-5level] %t %c{10} %M %L %n%msg%n"/>
             <SizeBasedTriggeringPolicy size="10MB"/> <!-- 日志文件大小 -->
             <DefaultRolloverStrategy max="20"/> <!-- 最多保留文件数 -->
             <!--<Append value="false"/>-->  <!--追加模式还是覆盖模式-->
@@ -47,21 +45,18 @@
     <Loggers>
         <Root level="debug"> <!-- 定义Root Logger -->
             <AppenderRef ref="con"/> <!-- Root Logger的Appender引用上面定义的Console -->
-            <AppenderRef ref="infoRollingFile"/>
-            <AppenderRef ref="errorRollingFile"/>
         </Root>
 
+        <Logger name="com.aries.auth.clotho" level="info" additivity="true">
+            <AppenderRef ref="infoRollingFile"/> <!-- Root Logger的Appender引用上面定义的Console -->
+            <AppenderRef ref="errorRollingFile"/> <!-- Root Logger的Appender引用上面定义的Console -->
+        </Logger>
         <!--        <Logger name="com.aries.hera" level="debug" additivity="true">-->
         <!--            <AppenderRef ref="infoRollingFile"/> &lt;!&ndash; Root Logger的Appender引用上面定义的Console &ndash;&gt;-->
         <!--            <AppenderRef ref="errorRollingFile"/> &lt;!&ndash; Root Logger的Appender引用上面定义的Console &ndash;&gt;-->
         <!--        </Logger>-->
 
-        <!--        <Logger name="org.apache.zookeeper" level="warn" additivity="true">-->
-        <!--            <AppenderRef ref="errorRollingFile"/>-->
-        <!--        </Logger>-->
-
-        <!--        <Logger name="org.apache.curator" level="warn" additivity="true">-->
-        <!--            <AppenderRef ref="errorRollingFile"/>-->
-        <!--        </Logger>-->
+        <!--        <Logger name="org.apache.zookeeper" level="warn" additivity="true"/>-->
+        <!--        <Logger name="org.apache.curator" level="warn" additivity="true"/>-->
     </Loggers>
 </Configuration>
